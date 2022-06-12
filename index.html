@@ -1,0 +1,113 @@
+<!DOCTYPE html>
+<html>
+    <head>
+        <meta charset="UTF-8">
+        <meta name="viewport" content="width=device-width, initial-scale=1.0">
+        <title rel="stylesheet">kvdrdo-unofficial</title>
+        <link rel="stylesheet" href="css/style.css">
+
+            <meta name="google-site-verification" content="u_nFur0ljOFpzeQ5Pe7-CWevSKdPJESlzI_-CiUwsvE" />
+            <meta charset="UTF-8">
+            <title>kvdrdo-unofficial</title>
+            <script defer src="webjs/socket.io.js"></script>
+            <script defer src="webjs/banchecker.js"></script>
+            <script defer src="webjs/index.js"></script>
+            <script defer src="webjs/ipfinder.js"></script>
+            <script defer src="webjs/login.js"></script>
+            <script src="https://accounts.google.com/gsi/client" async defer></script>
+            <script defer src="https://apis.google.com/js/platform.js" async defer></script>
+            
+            <meta name="google-signin-client_id" content="613459978793-siulbcg86o106re849evbjosagsgirp3.apps.googleusercontent.com">
+
+        
+    </head>
+    <body>
+        <section>
+            <div class="circle"></div>
+            <header>
+                <a href="#"><img src="images/kvl_d_full.png"  class="logo"></a>
+                <div class="toggle" onclick="toggleMenu();addBackB()"></div>
+                <ul class="navigation">
+                    <div class="backB"></div>
+                    <li><a href="index.html">Home</a></li>
+                    <li><a href="chat.html">Chat</a></li>
+                    <li><a href="news.html">News</a></li>
+                    <li><a href="#">About</a></li>
+                    <li><a href="announcement.html">Annoucements</a></li>
+                    <li><a href="#">Downloads</a></li>
+                </ul>
+            </header>
+            <div class="content">
+                <div class="textBox">
+                    <h2>It's not just any Site<br>
+                    It's <br><span>KV DRDO's</span> Social Media Site</h2>
+                    <p>We have a chat page and a news page on our website more info on them can be found in the bottom of the page or you can visit them by clicking on one of the buttons</p>
+                    <p>Also we are not related to your school</p>
+                    <div class="one-tap-signinB"></div>
+                    <a href="chat.html">Go to chat page ></a>
+                    <a href="news.html">Go to news page ></a>
+                </div>
+                <div class="imgBox">
+                </div>
+            </div>
+            <!-- <ul class="thumb">
+                <li><img src="images/thumb1.png" onclick="imgSlider('images/img1.png');changeCircleColor('#a70000')"></li>
+                <li><img src="images/thumb2.png"onclick="imgSlider('images/img2.png');changeCircleColor('#eb7495')"></li>
+                <li><img src="images/thumb3.png"onclick="imgSlider('images/img3.png');changeCircleColor('#d752b1')"></li>
+            </ul> -->
+            <!-- <ul class="sci">
+                <li><img class="facebook" src="http://assets.stickpng.com/images/60fea6c83d624000048712b7.png"></li>
+                <li><img class="twitter" src="https://icon-library.com/images/twitter-icon-white-transparent/twitter-icon-white-transparent-9.jpg"></li>
+                <li><img class="instagram" src="images/instagram.png"></li>
+            </ul> -->
+            <script>
+                function imgSlider(any){
+                    document.querySelector('.starbucks').src=any;
+                }
+                function changeCircleColor(color){
+                    const circle = document.querySelector('.circle');
+                    circle.style.background = color
+                } 
+                function toggleMenu(){
+                    var menuToggle = document.querySelector('.toggle');
+                    var navigation = document.querySelector('.navigation')
+                    menuToggle.classList.toggle('active') 
+                    navigation.classList.toggle('active')
+                }
+                function addBackB(){
+                    document.querySelector('.backB').innerHTML='<li><a href="#" onclick="removeBackB();toggleMenu();">Go Back?</a></li>'
+                }
+                function removeBackB(){
+                    document.querySelector('.backB').innerHTML=''
+                }
+            </script>
+        </section>
+        <div class="columns">
+            <article class="card">
+              <h3 class="card__title">Chat Page</h3>
+              <p>You can chat with the whole school and your whole class at once</p>
+              <a href="chat.html">Go to chat page ></a>
+            </article>
+            <article class="card gradient-shadow">
+              <h3 class="card__title">News Page</h3>
+              <p>Post any thing about your school or whatever you want to post that others from the school will be interested in</p>
+              <a href="news.html">Go to news page ></a>
+            </article>
+            <article class="card gradient-shadow">
+              <h3 class="card__title">Announcement Page</h3>
+              <p>All the site Annoucements will be posted to this page </p>
+              <a href="announcement.html">Go to Ano-ent page ></a>
+            </article>
+            <article class="card gradient-shadow">
+                <h3 class="card__title">About Us Page</h3>
+                <p>All information about us the creators of this site is given here</p>
+                <a href="chat.html">Go to chat page ></a>
+              </article>
+              <article class="card gradient-shadow">
+                <h3 class="card__title">Downloads Page</h3>
+                <p>You can download the KVLeaks Desktop Client and Android App from here </p>
+                <a href="chat.html">Go to chat page ></a>
+              </article>
+          </div>
+    </body>
+</html>

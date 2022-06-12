@@ -1,0 +1,967 @@
+@import url('https://fonts.googleapis.com/css2?family=Open+Sans:wght@300&display=swap');
+
+
+* {
+  font-family: 'Open Sans', sans-serif;
+}
+html::-webkit-scrollbar{
+    display: none;
+    overflow-x: hidden;
+}
+
+body{
+    height: 100%;
+    overflow-x: hidden;
+    background: var(--primary-background);
+}
+
+:root{
+    --invert-factor:invert(0);
+    --log-out-inverted:#be6c00;
+    --chat-font-color-else:#000;
+    --chat-font-color-my:#fff;
+    --else-chat-color:#ececec;
+    --primary-box-shadow:rgba(0, 0, 0, 0.1);
+    --primary-box-shadow-head:rgba(0, 0, 0, 0.1);
+    --primary-role-color:#ececec;
+    --primary-chat-color:#579ffb;
+    --primary-color:#579ffb;
+    --secondary-color:#2180fc;
+    --primary-color-hover:#4193ff;
+    --primary-background:#fff;
+    --secondary-background:#c1c1c1;
+    --primary-font:#fff;
+    --secondary-font:black;
+    --light: #fff;
+    --dark: #28292c;
+}
+
+/* :root {
+    --primary-box-shadow:rgba(0, 0, 0, 0.6);
+    --primary-box-shadow-head:rgba(0, 0, 0, 0.9);
+    --primary-role-color:#fff;
+    --primary-chat-color:#000;
+    --primary-color: #1c1c1c;
+    --secondary-color: #000;
+    --tertiary-background: #ccc;
+    --primary-background: #222;
+    --primary-color-hover: #000;
+    --secondary-background: #e2eeff;
+    --primary-font: #fff;
+    --secondary-font: black;
+} */
+
+.menu {
+     font-size: 23px;
+    font-weight: 100;
+    background: var(--primary-color);
+    width: 400px;
+    height: 100%;
+    padding-bottom: 20px;
+    margin-top: -25px;
+    padding-left: 50px;
+    position: fixed;
+    z-index: 100;
+    left: 0px;
+    color: #333;
+}
+
+/* .menu .navBottom{
+    position: absolute;
+    bottom: -55%;
+    left: -15%;
+    width: 445px;
+    background: var(--secondary-color);
+    border: var(--secondary-color) solid;
+    box-shadow: 0px 0 10px #33333380;
+    height: 180px;
+} */
+
+.menu .title {
+    position: absolute;
+    top: 50%;
+    color:#fff;
+    background: #579ffb ;
+    padding-left: 600px;
+    padding-right: 600px;
+    -webkit-transform: translateY(-50%);
+    -ms-transform: translateY(-50%);
+    transform: translateY(-50%);
+    transform: rotate(270deg);
+    left:-198px;
+    font-weight: 800;
+    font-size: 18px;
+}
+.menu .nav {
+    position: absolute;
+    top: 50%;
+    -webkit-transform: translateY(-50%);
+    -ms-transform: translateY(-50%);
+    transform: translateY(-50%);
+}
+.menu .bMain{
+    display: flex;
+    flex-direction: column;
+    background: var(--primary-color-hover);
+    color: var(--primary-font);
+    border: none;
+    height: 50px;
+    width: 350px;
+    margin: 40px 0px 40px 0px;
+    padding: 10px 5px 5px 20px;
+    border-radius: 10px;
+    box-shadow: 0px 8px 15px var(--primary-box-shadow);
+    justify-items: center;
+    font-size: 20px;
+    transition: 0.4s;    
+    cursor: pointer;
+}
+.menu .bMain:hover{
+    margin: 40px 0px 50px 0px;
+    background: #fff;
+    color: #000;
+}
+.menu .bMain img{
+    width: 31px;
+    transition: 0.4s;
+}
+.menu .bMain img:hover{
+    filter: invert(100%);
+}
+.menu .bMain .text{
+    position: absolute;
+    left: 35%;
+    font-weight: 800;
+}
+.menu .navHead{
+    position: absolute;
+    top:15px;
+    left: 0%;
+    width: 410px;
+    background: var(--secondary-color);
+    border: var(--secondary-color) solid;
+    box-shadow: 0px 0 10px var(--primary-box-shadow-head);
+    border-radius: 0px 10px 10px 0px;
+    height: 100px;
+}
+.menu .navHead .out {
+    position: absolute;
+    right: 20px;
+    background: var(--log-out-inverted);
+    padding: 5px;
+    border-radius: 10px;
+    top: 15px;
+    width: 60px;
+    filter: invert(1);
+    box-shadow: 0px 8px 15px rgb(255 255 255 / 10%);
+}
+.menu .navHead .navName {
+    cursor: pointer;
+    font-size: 17px;
+    position: absolute;
+    top: 15px;
+    left: 100px;
+    font-weight: 900;
+    color: #fff;
+}
+.menu .navHead .navImg {
+    cursor: pointer;
+    border-radius: 200px;
+    width: 80px;
+    position: absolute;
+    left: 10px;
+    top: 10px;
+}
+.menu .navBottom {
+    cursor: pointer;
+    text-transform: capitalize;
+    position: absolute;
+    bottom: 0px;
+    border-radius: 85px 85px 0px 0px;
+    width: 330px;
+    color: #fff;
+    left: 0px;
+    background: var(--secondary-color);
+    padding: 15px 0px 12px 40px;
+    font-size: 20px;
+    opacity: 0.3;
+    box-shadow: 0 -10px 5px -5px var(--primary-box-shadow);
+}
+.Mem{
+    background: darkgrey;
+}
+.Vip{
+    background: salmon;
+    cursor: pointer;
+}
+.Adm{
+    background: #109910;
+    cursor: pointer;
+}
+.menu .navHead .roleBox {
+    color: #fff;
+    position: absolute;
+    margin-top: 60px;
+    left: 100px;
+    font-size: 17px;
+    padding: 0px 10px;
+    border-radius: 5px;
+}
+.navBottom img {
+    filter: invert(1);
+    margin-bottom: -4px;
+    margin-right: 10px;
+    width: 25px;
+}
+.memDiv {
+    border: 1px var(--secondary-color) solid;
+    width: 728px;
+    padding-left: 70px;
+    border-radius: 10px;
+    padding: 20px 0px 20px 100px;
+}
+.memDiv img {
+    position: absolute;
+    margin-top: -20px;
+    filter: invert(1);
+    border-radius: 10px 0px 0px 10px;
+    background: var(--log-out-inverted);
+    left: 0px;
+    padding: 20px 26px;
+    width: 45px;
+}
+.memDiv .nameDiv {
+    font-size: 16px;
+    margin-left: 10px;
+    width: 250px;
+    border-radius: 0px 0px 0px 0px;
+    padding: -50px 0px;
+    font-weight: 700;
+    color: var(--chat-font-color-else);
+}
+.findDiv {
+    box-shadow: 0 -5px 5px -5px #333;
+    background: var(--primary-background);
+    border: 1px var(--chat-font-color-else) solid;
+    padding: 20px 20px 19px 130px;
+    border-radius: 10px;
+    font-weight: bold;
+    width: 220px;
+    font-size: 30px;
+}
+.findDiv img {
+    left: 1px;
+    margin-top: -20px;
+    border-radius: 10px 0px 0px 10px;
+    width: 50px;
+    padding: 15px 20px;
+    background: var(--secondary-color);
+    position: absolute;
+}
+/* .menu .nav li {
+    padding-bottom: 30px;
+    list-style-type: none;
+}
+.menu .nav li a {
+    display: block;
+    text-decoration: none;
+    color: inherit;
+    transition: 0.4s;
+}
+.menu .nav li a:hover {
+    text-decoration: underline 1px;
+} */
+.Rmenu {
+    background: var(--primary-color);
+    border-left: var(--secondary-color) solid;
+    font-weight: 100;
+    top: 0px;
+    padding-bottom: 10px;
+    width: 350px;
+    height: 100%;
+    padding-left: 50px;
+    position: fixed;
+    z-index: 100;
+    visibility: hidden;
+    right: -400px;
+    color: #222;
+    transition: 0.3s;
+}
+.Rmenu:hover, .Rmenu:focus {
+    transform: translate3d(-300px, 0, 0);
+    transition: 0.3s;
+}
+.Rmenu .title {
+    background: var(--secondary-color);
+    color: #fff;
+    padding-right: 40px;
+    padding-left: 20px;
+    border-radius: 30px 30px 0px 0px;
+    top: 40%;
+    position: absolute;
+    -webkit-transform: translateY(-50%);
+    -ms-transform: translateY(-50%);
+    transform: translateY(-50%);
+    justify-content: center;
+    transform: rotate(270deg);
+    right: 91%;
+    height: 24px;
+    font-weight: 800;
+    font-size: 13px;
+}
+.Rmenu .title img {
+    position: absolute;
+    right: 5px;
+    filter: invert(1);
+    /* top: -7px; */
+    bottom: -5px;
+    width: 36px;
+    transform: rotate(90deg);
+}
+.Rmenu .Rnav {
+    position: absolute;
+    top: 55%;
+    left: 30px;
+    -webkit-transform: translateY(-50%);
+    -ms-transform: translateY(-50%);
+    transform: translateY(-50%);
+    font-weight: 100;
+}
+.Rmenu .Rnav li {
+    padding-bottom: 20px;
+    list-style-type: none;
+    
+}
+.Rmenu .Rnav li a {
+    display: block;
+    text-decoration: none;
+    color: inherit;
+}
+.Rmenu .Rnav li a:hover {
+    color: #fff;
+}
+.Rmenu .rMain{
+    display: flex;
+    flex-direction: column;
+    background: var(--primary-color-hover);
+    color: var(--primary-font);
+    border: none;
+    height: 50px;
+    width: 250px;
+    margin: 20px 0px 20px 0px;
+    padding: 10px 5px 5px 20px;
+    border-radius: 10px;
+    box-shadow: 0px 8px 15px rgba(0, 0, 0, 0.1);
+    justify-items: center;
+    font-size: 20px;
+    transition: 0.4s;    
+    cursor: pointer;
+}
+.Rmenu .rMain:hover{
+    margin: 30px 0px 30px 0px;
+    background: #fff;
+    color: #000;
+}
+.Rmenu .rMain img{
+    width: 31px;
+    transition: 0.4s;
+}
+.Rmenu .rMain img:hover{
+    filter: invert(100%);
+}
+.Rmenu .rMain .text{
+    position: absolute;
+    left: 35%;
+    font-weight: 800;
+}
+.Rmenu .navHeadR{
+    position: absolute;
+    top:15px;
+    left: 0%;
+    width: 410px;
+    background: var(--secondary-color);
+    border: var(--secondary-color) solid;
+    box-shadow: 0px 0 10px #33333380;
+    border-radius: 0px 10px 10px 0px;
+    height: 100px;
+}
+.Rmenu .navHeadR .out {
+    position: absolute;
+    left: 15px;
+    background: var(--log-out-inverted);
+    padding: 5px;
+    border-radius: 10px;
+    top: 15px;
+    width: 60px;
+    filter: invert(1);
+    box-shadow: 0px 8px 15px rgb(255 255 255 / 10%);
+}
+.Rmenu .navHeadR .navName {
+    cursor: pointer;
+    position: absolute;
+    top: 15px;
+    left: 180px;
+    font-weight: 900;
+    color: #fff;
+  }
+  .Rmenu .navHeadR .navImg {
+    cursor: pointer;
+    -webkit-transform: scaleX(-1);
+    transform: scaleX(-1);
+    border-radius: 200px;
+    width: 70px;
+    position: absolute;
+    left: 100px;
+    top: 15px;
+  }
+.Rmenu .RnavBottom {
+    cursor: pointer;
+    text-transform: capitalize;
+    position: absolute;
+    bottom: 0px;
+    border-radius: 85px 85px 0px 0px;
+    width: 261px;
+    color: #fff;
+    left: 0px;
+    background: var(--secondary-color);
+    padding: 15px 0px 12px 39px;
+    font-size: 15px;
+    opacity: 0.3;
+    box-shadow: 0 -10px 5px -5px var(--primary-box-shadow);
+}
+.Rmenu .RnavBottom img {
+    filter: invert(1);
+    margin-bottom: -4px;
+    margin-right: 10px;
+    width: 25px;
+}
+.Rmenu .navHeadR .RroleBox {
+    color: #fff;
+    position: absolute;
+    margin-top: 55px;
+    left: 180px;
+    font-size: 17px;
+    padding: 0px 10px;
+    border-radius: 5px;
+  }
+#profileBox {
+    cursor: pointer;
+    border:2px lightgrey solid;
+    border-radius: 10px;
+    box-shadow: 0px 5px 10px #33333380;
+    padding: 20px;
+    background: var(--chat-font-color-my);
+    color:var(--chat-font-color-else);
+    min-width: 400px;
+    max-width: 400px;
+    height: 250px;
+}
+
+#profileBox .infoBox {
+    list-style: none;
+    position: relative;
+    top: 80px;
+    right: -110px;
+    font-weight: 800;
+    margin-top: -190px;
+}
+#profileBox ul {
+    list-style: none;
+}
+#profileBox ul li{
+    margin-top: 10px;
+}
+#profileBox .proPfp {
+    width: 100px;
+    border-radius: 100px;
+}
+#profileBox .b1 {
+    cursor: pointer;
+    position: absolute;
+    margin-top: 110px;
+    width: 444px;
+    border: 2px lightgrey solid;
+    color: var(--chat-font-color-else);
+    background: var(--chat-font-color-my);
+    height: 58px;
+    border-radius: 0px 0px 10px 10px;
+    font-size: 18px;
+    left: 0px;
+    transition: 0.3s;
+}
+#profileBox .b1:hover{
+    opacity:0.5;
+}
+#profileBox .editDiv {
+    cursor:pointer;
+    background: #fff;
+    padding: 7px 10px;
+    width: 18px;
+    border-radius: 120px;
+    opacity: 0.95;
+    transform: rotate(180deg);
+    position: absolute;
+    margin-top: -40px;
+    left: 85px;
+}
+#editBox {
+    max-width: 400px;
+    border:2px lightgrey solid;
+    border-radius: 10px;
+    box-shadow: 0px 5px 10px #33333380;
+    padding: 20px;
+    background: var(--chat-font-color-my);
+    color:var(--chat-font-color-else);
+    min-width: 400px;
+    min-width: 300px;
+    height: 250px;
+    display: flex;
+    flex-wrap: wrap;
+}
+#editBox img {
+    cursor: pointer;
+    width: 80px;
+    border-radius: 120px;
+}
+#editBox .setImg {
+    width: 100px;
+  }
+
+#wrongChatBox {
+    color: var(--chat-font-color-else);
+    max-width: 500px;
+    border-radius: 10px;
+    box-shadow: 0px 10px 10px -8px #333;
+    padding: 0px 50px;
+    border: 2px var(--else-chat-color) solid;
+}
+#wrongChatBox span {
+    background: var(--primary-chat-color);
+    color: var(--chat-font-color-my);
+    border-radius: 5px;
+    padding: 0px 25px;
+}
+#wrongChatBox img {
+    height: 23px;
+    margin-right: 5px;
+    margin-bottom: -4px;
+    filter:var(--invert-factor);
+}
+#wrongChatBox button {
+    background: #fff;
+    width: 250px;
+    font-size: 28px;
+    border: 1px black solid;
+    box-shadow: 0 5px 5px -5px #333;
+    border-radius: 5px;
+    cursor: pointer;
+}
+#wrongChatBox p {
+    font-weight: 600;
+}
+#wrongChatBox .para2 {
+    font-size: 20px;
+    margin-top: -20px;
+}
+#wrongChatBox ul {
+    list-style: none;
+}
+#wrongChatBox li:nth-child(odd) {
+    color: var(--secondary-color);
+    background: var(--primary-role-color);
+    border-radius: 5px;
+}
+#wrongChatBox li {
+    padding: 0px 10px;
+    background: var(--chat-font-color-my);
+    border-left: 2px var(--primary-role-color) solid;
+    border-right: 2px var(--primary-role-color) solid;
+    color: var(--chat-font-color-else);
+}
+#wrongChatBox ul {
+    list-style: none;
+    margin-left: -40px;
+}
+h5 {
+    font-size: 20px;
+}
+.line {
+    border-bottom: 1px #c1c1c1 solid;
+    margin-left: -71px;
+    margin-top: -30px;
+    width: 641px;
+    height: 15px;
+    text-indent: -2099px;
+}
+
+#messages{
+    left:460px;
+    position:absolute;
+    overflow-y: scroll;
+    overflow-x: hidden;
+    max-height: 900px;
+    margin-right: 40px;
+}
+#msg{
+    padding-bottom: 20px;
+    margin-bottom: 20px;
+
+}
+.replyCheck {
+    display: flex;
+    align-items: center;
+    color: #fff;
+    border-radius: 20px 20px 0px 0px;
+    justify-content: center;
+    position: fixed;
+    margin-left: 15px;
+    padding: 0px 50px;
+    bottom: 24px;
+    background: var(--primary-color-hover);
+    transition: 0.4s;
+}
+.replyCheck .replyName{
+    margin-left: 10px;
+    font-weight: bold;
+}
+.replyCheck .closeBtn {
+    cursor: pointer;
+    position: relative;
+    right: -33px;
+    padding: 2px;
+    border-radius: 8px;
+    background: var(--primary-color);
+    font-size: small;
+    transition: 0.2s;
+}
+.replyCheck .closeBtn:hover{
+    background: var(--primary-color-hover);
+}
+#myMsg{
+    color: var(--chat-font-color-my);
+    border-radius: 20px 0px 20px 20px;
+    background: var(--primary-chat-color);
+    margin-right: 84px;
+    margin-left: 10px;
+    
+}
+#myMsg .role{
+    color: #fff;
+    position: absolute;
+    right: 18px;
+    margin-top: 25px;
+}
+#myMsg .pfp{
+    position: absolute;
+    right: 21px;
+}
+#myMsg .timestamp{
+    position: absolute;
+    right: 107px;
+    margin-top: -6px;
+}
+#myMsg .adj{
+    right:25px;
+}
+#myMsg .replyB {
+    
+    visibility: hidden;
+    position: absolute;
+    height: 26px;
+    left: 10px;
+    border-radius: 0px 30px 0px 20px;
+    width: 40px;
+    border: 2px var(--secondary-color) solid;
+    margin-top: -20px;
+    background: var(--secondary-color);
+    transition: 0.3s;
+}
+#elseMsg{
+    border-radius: 0px 20px 20px 20px;
+    background: var(--else-chat-color);
+    margin-left: 84px;
+    color: var(--chat-font-color-else);
+}
+#elseMsg .timestamp {
+    position: absolute;
+    right: 40px;
+    margin-top: -6px;
+}
+#elseMsg .pfp{
+    position: absolute;
+    left: 21px;
+}
+#elseMsg .role{
+    color: #fff;
+    position: absolute;
+    left: 18px;
+    margin-top: 25px;
+}
+#elseMsg .adj{
+    left: 25px;
+}
+#elseMsg .replyB {
+    visibility: hidden;
+    position: absolute;
+    height: 26px;
+    left: 84px;
+    border-radius: 0px 30px 0px 20px;
+    width: 40px;
+    border: 2px var(--secondary-background) solid;
+    margin-top: -20px;
+    background: var(--secondary-background);
+    transition: 0.3s;
+}
+.rMem {
+    background: var(--primary-color);
+    padding: 2px;
+    padding-right: 5px;
+    padding-left: 5px;
+    border-radius: 20px;
+    font-size: 12px;
+}
+.rAdm {
+    background: var(--primary-color);
+    padding: 2px;
+    padding-right: 5px;
+    padding-left: 5px;
+    border-radius: 20px;
+    font-size: 15px;
+}
+.rVIP{
+    background: var(--primary-color);
+    padding-right: 10px;
+    padding-left: 10px;
+    border-radius: 20px;
+    font-size: 15px;
+}
+.MsgD{
+    padding: 10px;
+    width: 850px;
+    max-width: 900px;
+}
+.MsgD .name{
+    position: absolute;
+    margin-top: 10px;
+    margin-left: 10px;
+    font-weight: 600;
+}
+.MsgD .timestamp{
+    position:absolute;
+}
+.MsgD .pfp{
+    border-radius: 100px;
+    max-height: 50px;
+    max-width: 50px;
+    margin-top: -9px;
+}
+.MsgD .replyB img {
+    width: 29px;
+}
+.MsgD p{
+    position: relative;
+    margin-left: 12px;
+    margin-top: 30px;
+
+}
+.MsgD .replySec {
+    cursor: pointer;
+    color: #fff;
+    background: var(--secondary-color);
+    padding: 0px 0px 0px 20px;
+    width: inherit;
+    border-radius: 0px 0px 20px 20px;
+    position: relative;
+    bottom: -10px;
+    left: -10px;
+}
+bold {
+    font-weight: bold;
+}
+#messages{
+    scrollbar-width: none;
+    scroll-behavior: smooth;
+}
+#messages::-webkit-scrollbar{
+    display: none;
+}
+#msgForm{
+    position: fixed;
+    margin-left: 10px;
+    bottom: 0%;
+    min-width: 1000px;
+    margin-bottom: 0px;
+}
+#msgForm input{
+    background: #fff;
+    top: 50%;
+    width: 950px;
+    position: absolute;
+    height: 40px;
+    border: 2px var(--primary-chat-color) solid;
+    border-right: none;
+    border-radius: 5px;
+    color:none;
+    font-size: medium;
+}
+input:focus{
+    outline: none;
+}
+.trigger{
+    background: #fff;
+    position: fixed;
+    bottom: 0px;
+    padding-left: 5px;
+    height: 37px;
+    padding-bottom: 5px;
+    padding-right: 5px;
+    font-size: 28px;
+    border: 2px var(--primary-chat-color) solid;
+    border-left: none;
+    margin-left: -11px;
+    border-radius: 0px 5px 5px 0px;
+    width: 24px
+}
+.emojiB{
+    border-right: none;
+    margin-left: -12px;
+    margin-right: 5px;
+}
+.sendB{
+    margin-left: 20px;
+}    
+
+img.backbtn {
+    width: 51px;
+    position: fixed;
+    top: -300px;
+    cursor: pointer;
+    background: var(--secondary-color);
+    border-radius: 5px;
+    padding: 5px;
+    box-shadow: 5px 7px 5px -5px #333;
+    transition: 0.3s;
+}
+img.backbtn:hover{
+    background-color: var(--primary-color-hover);
+}
+img.Rbackbtn {
+    width: 51px;
+    position: fixed;
+    top: -220px;
+    cursor: pointer;
+    background: var(--secondary-color);
+    border-radius: 5px;
+    padding: 5px;
+    box-shadow: 5px 7px 5px -5px #333;
+    transition: 0.3s;
+}
+img.Rbackbtn:hover{
+    background-color: var(--primary-color-hover);
+}
+.menu .setContainer {
+    background: var(--secondary-color);
+    padding: 40px 50px 10px 50px;
+    position: absolute;
+    justify-content: center;
+    display: flex;
+    color: #fff;
+    font-weight: bold;
+    border-radius: 10px;
+    width: 200px;
+    box-shadow: 0px 4px 16px -5px #333;
+}
+.menu .sCon1 {
+    font-size: 20px;
+    top: -200px;
+}
+.Rmenu .setContainer {
+    background: var(--secondary-color);
+    padding: 40px 50px 10px 50px;
+    position: absolute;
+    justify-content: center;
+    display: flex;
+    color: #fff;
+    font-weight: bold;
+    border-radius: 10px;
+    width: 150px;
+    box-shadow: 0px 4px 16px -5px #333;
+}
+.Rmenu .sCon1{
+    top: -120px;
+}
+
+.ruxPopup {
+    padding-top: 40px;
+    transform: translate(50%,-50%);
+    position: fixed;
+    overflow-y: scroll;
+    background: #fff;
+    top: 50%;
+    right: 50%;
+    height: 400px;
+    scrollbar-width: none;
+    width: 300px;
+    z-index: 205;
+    border-radius: 10px 10px 0px 0px;
+}
+.ruxPopup::-webkit-scrollbar{
+    display: none;
+}
+.ruxPopup .topic {
+    position: fixed;
+    color: var(--primary-font);
+    margin-top: -47px;
+    font-size: 20px;
+    font-weight: bold;
+    border-radius: 10px 10px 0px 0px;
+    padding-top: 15px;
+    width: 300px;
+    height: 40px;
+    text-align: center;
+    justify-content: center;
+    /* padding: 0px 0px 0px 0px; */
+    background: var(--primary-color);
+}
+.ruxPopup ul {
+    list-style: lower-roman;
+}
+.ruxPopup p {
+    font-size: 16px;
+    font-weight: bold;
+}
+.popFooter button {
+    z-index: 205;
+    cursor: pointer;
+    background: #fff;
+    border: 1px var(--secondary-color) solid;
+    width: 152px;
+    /* border-radius: 0px 0px 10px 10px; */
+    height: 45px;
+}
+.popFooter .b2P {
+
+    position: fixed;
+    left: 50%;
+    bottom: 10%;
+    border-radius: 0px 0px 10px 0px;
+}
+.popFooter .b1P {
+    /* margin-top: 700px; */
+    right: 50%;
+    bottom: 10%;
+    position: fixed;
+    border-radius: 0px 0px 0px 10px;
+}
+
+.bgCover{
+    background: #000;
+    z-index: 200;
+    opacity: 0.8;
+    width: 100%;
+    height: 100%;
+    position: fixed;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%,-50%);
+}

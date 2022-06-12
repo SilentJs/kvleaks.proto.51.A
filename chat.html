@@ -1,0 +1,129 @@
+
+<!DOCTYPE html>
+<html lang="en">
+    <head>
+        <meta charset="UTF-8">
+        <meta name="viewport" content="width=device-width, initial-scale=1.0">
+        <title>Document</title>
+        <script defer src="https://cdnjs.cloudflare.com/ajax/libs/socket.io/2.3.0/socket.io.js"></script>
+        <script src="https://kit.fontawesome.com/4f3bffcdd5.js" crossorigin="anonymous"></script>
+        <script type="module" src="https://cdn.jsdelivr.net/npm/emoji-picker-element@^1/index.js"></script>
+        <script defer src="webjs/client.js"></script>
+        <!-- <script defer src="webjs/index.js"></script> -->
+        <script defer src="webjs/banchecker.js"></script>
+        <script defer src="webjs/hoverstuff.js"></script>
+        <link rel="stylesheet" href="css/chat.css">
+        <link rel="stylesheet" href="css/adjuster.css">
+        <link rel="stylesheet" href="css/buttons.css">
+    </head>
+    <body>
+    <div id="navMenu" class="menu">
+
+
+        <div class="navHead"><img class="navImg" src="images/grey.jpg"></div>
+        <div class="nav">
+        <button onclick="window.location.href='index.html'" onmouseover="iconFixerOn('.hover1')" onmouseout="iconFixerOut('.hover1')" id="b1"  class="bMain b1"><img src="images/home.svg" class="hover1"><a class="text">Home</a></button>
+        <button onclick="window.location.href='news.html'" onmouseover="iconFixerOn('.hover2')" onmouseout="iconFixerOut('.hover2')" id="b2"  class="bMain b2"><img src="images/news.svg" class="hover2"><a class="text">Newspage</a></button>
+        <button onclick="window.location.href='announcement.html'" onmouseover="iconFixerOn('.hover25')" onmouseout="iconFixerOut('.hover25')" id="b2"  class="bMain b2"><img src="images/announcement.svg" class="hover25"><a class="text">Annoucements</a></button>
+        <button onclick="findChannels()" onmouseover="iconFixerOn('.hover3')" onmouseout="iconFixerOut('.hover3')" id="b3" class="bMain b3"><img src="images/globe.svg" class="hover3"><a class="text">Channels</a></button>
+        <button onmouseover="iconFixerOn('.hover4')" onmouseout="iconFixerOut('.hover4')" id="b4" class="bMain b4"><img src="images/info.svg" class="hover4"><a class="text">About Us</a></button>
+        <button onmouseover="iconFixerOn('.hover5')" onmouseout="iconFixerOut('.hover5')" id="b5"class="bMain b5"><img src="images/download.svg"class="hover5"><a class="text">Downloads</a></button>
+        <button onclick="getSettings()"  onmouseover="iconFixerOn('.hover6')" onmouseout="iconFixerOut('.hover6')" id="b6" class="bMain b6"><img src="images/cog.svg" class="hover6"><a class="text">Settings</a></button>
+    </div>
+    <div id="navFooter" onclick="getMembers()" class="navBottom DnavBottom"><img src="images/people.svg">View Members</div>
+    </div>
+    <div class="Rmenu">
+        <div class="title">Menu<img src="images/uparrowgood.svg"></div>
+        <div class="navHeadR"><img class="navImg" src="images/grey.jpg"></div>
+        
+        <div class="Rnav">
+            <button onclick="window.location.href='index.html'" onmouseover="iconFixerOn('.hover1')" onmouseout="iconFixerOut('.hover1')" id="b1"  class="rMain b1"><img src="images/home.svg" class="hover1"><a class="text">Home</a></button>
+            <button onclick="window.location.href='news.html'" onmouseover="iconFixerOn('.hover2')" onmouseout="iconFixerOut('.hover2')" id="b2"  class="rMain b2"><img src="images/news.svg" class="hover2"><a class="text">Newspage</a></button>
+            <button onclick="window.location.href='announcement.html'" onmouseover="iconFixerOn('.hover25')" onmouseout="iconFixerOut('.hover25')" id="b2"  class="rMain b2"><img src="images/announcement.svg" class="hover25"><a class="text">Annoucements</a></button>
+            <button onclick="findChannels()" onmouseover="iconFixerOn('.hover3')" onmouseout="iconFixerOut('.hover3')" id="b3" class="rMain b3"><img src="images/globe.svg" class="hover3"><a class="text">Channels</a></button>
+            <button onmouseover="iconFixerOn('.hover4')" onmouseout="iconFixerOut('.hover4')" id="b4" class="rMain b4"><img src="images/info.svg" class="hover4"><a class="text">About Us</a></button>
+            <button onmouseover="iconFixerOn('.hover5')" onmouseout="iconFixerOut('.hover5')" id="b5"class="rMain b5"><img src="images/download.svg"class="hover5"><a class="text">Downloads</a></button>
+            <button onclick="getSettings()" onmouseover="iconFixerOn('.hover6')" onmouseout="iconFixerOut('.hover6')" id="b6" class="rMain b6"><img src="images/cog.svg" class="hover6"><a class="text">Settings</a></button>
+        </div>
+        <div id="navFooterR" onclick="getMembers()" class="RnavBottom"><img src="images/people.svg">View Members</div>
+    </div>
+
+
+
+    <div id="messages">
+        <div id='msg'>
+             <div class="MsgD" style="height: 80px;" id="elseMsg">
+                <div class="prof"><img class="pfp" src="images/grey.jpg"></div>
+                <a class="name">
+                </a>
+                <br>
+                <div class="timestamp"></div>
+                <p></p>
+             </div>
+             <br>
+             <div class="MsgD"  style="background: #ececec;height: 80px;"id="myMsg">
+                <div class="prof"><img class="pfp" src="images/grey.jpg"></div>
+                <a class="name">
+                </a>
+                <br>
+                <div class="timestamp"></div>
+                <p></p>
+             </div>
+             <br>
+             <div class="MsgD" style="height: 80px;" id="elseMsg">
+                <div class="prof"><img class="pfp" src="images/grey.jpg"></div>
+                <a class="name">
+                </a>
+                <br>
+                <div class="timestamp"></div>
+                <p></p>
+             </div>
+             <br>
+             <div class="MsgD" style="background: #ececec;height: 80px;" id="myMsg">
+                <div class="prof"><img class="pfp" src="images/grey.jpg"></div>
+                <a class="name">  
+                </a>
+                <br>
+                <div class="timestamp"></div>
+                <p></p>
+             </div>
+             <br>
+             <div class="MsgD" style="height: 80px;" id="elseMsg">
+                <div class="prof"><img class="pfp" src="images/grey.jpg"></div>
+                <a class="name">
+                </a>
+                <br>
+                <div class="timestamp"></div>
+                <p></p>
+             </div>
+             <br>
+             <div class="MsgD" style="background: #ececec;height: 80px;" id="myMsg">
+                <div class="prof"><img class="pfp" src="images/grey.jpg"></div>
+                <a class="name">
+                </a>
+                <br>
+                <div class="timestamp"></div>
+                <p></p>
+             </div>
+             <br>
+        </div>
+    <div class="messageBox">
+        <div class="replyCheck">Replying to <div class="replyName"></div><div onclick="closeReply()" class="closeBtn">Close</div></div>
+    <form id="msgForm" action="">
+        <a id="EmojiBox"></a>
+        <input type="text" placeholder="Message..." name="msg" style="position:static;" autocomplete="off" required>
+        <a type="button" id="emojiB" onclick="emojiMenu()" class="trigger emojiB"><i class="fa-regular fa-face-smile"></i></a> 
+        <a type="submit" onclick="message();" class="trigger sendB"><i class="fa-solid fa-paper-plane"></i></a>
+    </form>
+</div>    
+</div>
+<!-- <div class="navmain">
+    <a class="sButton" href="index.html"><i class="fa-solid fa-house-chimney"><gg>Home</gg></i></a>
+    <a href="chat.html"><i class="fa-solid fa-comment-dots"><gg>Chat</gg></i></a>
+    <a class="sButton" href="news.html" style="margin-right: 20px;"><i class="fa-solid fa-newspaper"><gg>News</gg></i></a>
+  </div> -->
+
+<div id="rules"></div>
+</body>
+
+</html>

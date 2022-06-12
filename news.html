@@ -1,0 +1,109 @@
+
+<!DOCTYPE html>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<html>
+
+<script defer src="webjs/socket.io.js"></script>
+<script defer src="webjs/news.js"></script>
+<script defer src="webjs/banchecker.js"></script>
+<script defer src="webjs/profileLoader.js"></script>
+<link rel="stylesheet" href="css/news.css">
+<link rel="stylesheet" href="css/newadjuster.css">
+<script src="https://kit.fontawesome.com/4f3bffcdd5.js" crossorigin="anonymous"></script>
+<script defer src="https://apis.google.com/js/platform.js" async defer></script>
+<meta name="google-signin-client_id" content="775875900950-0bbipabg64dbtfbrchtrbco7qortlhtf.apps.googleusercontent.com">
+<body>
+  <div class="postSec">
+    <ul id="posts" class="posts"></ul>
+</div>
+  <div class="navmain">
+    <a class="sButton" href="index.html"><gg>Home</gg></i></a>
+    <a href="chat.html"><gg>Chat</gg></i></a>
+    <a class="sButton" style="padding-right: 0px;" href="announcement.html"><gg>Annoucements</gg></i></a>
+    <a class="sButton" onclick="document.querySelectorAll('.sButton')[5].scrollIntoView()"><img class="bit2" src="images/uparrow.svg"></i></a>
+    <a class="sButton" href="news.html"><gg>AboutUs</gg></i></a>
+    <a class="sButton" href="news.html"><gg>Downloads</gg></i></a>
+    <a class="sButton" onclick="setMode()"><div class="imageMode"></div>ScreenMode</a>
+  </div>
+  
+<div class="searchSec">
+
+  <!-- <div class="dropdown">
+      <button class="dropbtn" onclick="showDropdown()">Search Options</button>
+      <div class="dropdown-content">
+        <a href="#" onclick="hideTagsBar()">Search by Topic</a>
+        <a href="#" onclick="hideTopicBar()">Search by Tags</a>
+      </div> -->
+  
+  
+
+  </div>
+</body>
+<div class="msgSec">
+  <form id="msgBox">
+    <button class="pbutton cdButton" type="submit">Post</button><br> 
+    <input id="enterTopic" type="text" placeholder="Topic" name="box1" required autocomplete="off"><br> 
+    <textarea id="enterContent" type="text" placeholder="Your Post's contents..." name="box2" required autocomplete="off" maxlength="2000"></textarea><br>
+    <input id="attach" type="text" placeholder="Attachments : paste the image address from imgur.com or any other site" name="box3" autocomplete="off"><br>
+    <input id="enterTags" type="text" placeholder="Tags: seperated by a hastag or space(example: funny class12 teacher)" name="box4" required autocomplete="off">
+  </form><br>
+  <form id="searchBox" style="display: flex;">
+    <button class="resetB" onclick="clearSBox()" type="reset" ><i class="fa-solid fa-xmark"></i></button>
+    <input type="text" placeholder="Search (include # to search by tags)" name="box1" id="tagsbar" autocomplete="off">
+    <button onclick="searchThing(boxData.box1.value.toLocaleLowerCase());" class="submitB"type="submit"><i class="fa-solid fa-magnifying-glass"></i></button> 
+    </form>
+    <script>
+      function searchThing(string){
+    localStorage.setItem('searching','true');
+    postBox.innerHTML=''
+    console.log(string)
+    contentArr=[]
+    for (let i = 0; i < 70; i++) {
+        if(dadarray[i]){
+            if(dadarray[i].Content.toLocaleLowerCase().includes(string)||dadarray[i].Topic.toLocaleLowerCase().includes(string)||dadarray[i].Name.toLocaleLowerCase().includes(string)||dadarray[i].Time.includes(string)){
+                messageOut(dadarray[i])
+            }
+        }
+    }
+    
+
+}
+    </script>
+    
+
+</div>
+<!-- Slideshow container -->
+<div class="Slideshow">
+  <div class="slideshow-container" style="display:none;"><div class="mySlides fade">
+    <div class="numbertext">1/6</div>
+    <img src="https://static.remove.bg/remove-bg-web/6ad52d54336ad62d58e7bd1317d40fb98e377ad5/assets/start-1abfb4fe2980eabfbbaaa4365a0692539f7cd2725f324f904565a9a744f8e214.jpg" style="width:100%">
+  </div><div class="mySlides fade">
+    <div class="numbertext">2/6</div>
+    <img src="https://images.pexels.com/photos/674010/pexels-photo-674010.jpeg?cs=srgb&dl=pexels-anjana-c-674010.jpg&fm=jpg" style="width:100%">
+  </div><div class="mySlides fade">
+    <div class="numbertext">3/6</div>
+    <img src="https://media.sproutsocial.com/uploads/2017/02/10x-featured-social-media-image-size.png" style="width:100%">
+  </div><div class="mySlides fade">
+    <div class="numbertext">4/6</div>
+    <img src="https://static.vecteezy.com/packs/media/components/global/search-explore-nav/img/vectors/term-bg-1-666de2d941529c25aa511dc18d727160.jpg" style="width:100%">
+  </div><div class="mySlides fade">
+    <div class="numbertext">5/6</div>
+    <img src="https://www.pixsy.com/wp-content/uploads/2021/04/ben-sweet-2LowviVHZ-E-unsplash-1.jpeg" style="width:100%">
+  </div><div class="mySlides fade">
+    <div class="numbertext">6/6</div>
+    <img src="https://helpx.adobe.com/content/dam/help/en/photoshop/using/convert-color-image-black-white/jcr_content/main-pars/before_and_after/image-before/Landscape-Color.jpg" style="width:100%">
+  </div>  <a class="prev" onclick="plusSlides(-1)">&#10094;</a>
+<a class="next" onclick="plusSlides(1)">&#10095;</a>
+</div>
+<br>
+
+
+<div style="text-align:center;display:none;">
+<span class="dot" onclick="currentSlide(1)"></span>
+<span class="dot" onclick="currentSlide(2)"></span>
+<span class="dot" onclick="currentSlide(3)"></span>
+</div>
+</div>
+<div id="rules"></div>
+</html>
