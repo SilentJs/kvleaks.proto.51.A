@@ -1,5 +1,5 @@
 
-const socket= io('http://localhost:4002')
+const socket= io('https://userdetailsdb.the-karambitkar.repl.co/')
 
 socket.on('showData',(string)=>{
     string.forEach(data => {
