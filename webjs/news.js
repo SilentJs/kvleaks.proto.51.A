@@ -14,7 +14,7 @@ var Cooldown=''
 var timestamp=''
 var realMinutes=0
 var realSeconds=0
-const socket= io('https://newsserver.the-karambitkar.repl.co);
+const socket= io('https://newsserver.the-karambitkar.repl.co');
 localStorage.setItem('searching','false')
 
 
