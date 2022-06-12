@@ -1,5 +1,5 @@
 
-const socketW=io('http://localhost:4002')
+const socketW=io('https://userdetailsdb.the-karambitkar.repl.co/')
 var banG=-1
 var banR=-1
 
