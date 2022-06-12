@@ -114,6 +114,7 @@ socket.on('nameGen',(string)=>{
 })
 
 socket.on('proD',(data)=>{
+     localStorage.setItem('Profile',JSON.stringify(data))
     var designation
     if(JSON.parse(localStorage.Profile).roles[0]==='Member'){
         designation='Mem'
@@ -122,7 +123,7 @@ socket.on('proD',(data)=>{
     }else if(JSON.parse(localStorage.Profile).roles[0]==='Admin'){
         designation='Adm'
     }
-    localStorage.setItem('Profile',JSON.stringify(data))
+   
     localStorage.setItem('Name',data.name);
     if(!data.pfp){data.pfp='https://i.imgur.com/DgZCbZU.png'}else{data.pfp=data.pfp.split('-c')[0]}
     document.querySelector('.navHead').innerHTML=`<div class="navHeadImgBox">
